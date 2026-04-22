@@ -1,0 +1,454 @@
+/* Hero Section */
+.hero {
+  background-color: var(--color-warm-ivory);
+  min-height: 80vh;
+  justify-content: center;
+  padding: 120px 20px 60px 20px;
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroLocation {
+  font-size: 0.9rem;
+  color: var(--color-forest-teal);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  color: var(--color-text-main);
+  margin-bottom: 20px;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: var(--color-forest-teal);
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.heroDescription {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.heroImageContainer {
+  position: relative;
+  height: 600px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+/* Specialties Carousel (Transition) */
+.specialties {
+  background-color: var(--color-forest-teal);
+  color: var(--color-white);
+  padding: 40px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.specialtiesTrack {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+.specialtyItem {
+  display: inline-block;
+  padding: 0 40px;
+  font-size: 1.5rem;
+  font-family: var(--font-accent);
+  font-weight: 600;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Manifesto Section */
+.manifesto {
+  background-color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.manifesto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(42, 127, 111, 0.1), transparent);
+}
+
+.manifestoContentSingle {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 60px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  border: 1px solid rgba(42, 127, 111, 0.1);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.manifestoContentSingle h2 {
+  font-size: 3.2rem;
+  margin-bottom: 40px;
+  color: var(--color-text-main);
+  line-height: 1.1;
+}
+
+.manifestoHighlight {
+  color: var(--color-forest-teal);
+  position: relative;
+  display: inline-block;
+}
+
+.manifestoHighlight::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: rgba(42, 127, 111, 0.1);
+  z-index: -1;
+}
+
+.manifestoText p {
+  margin-bottom: 24px;
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  opacity: 0.8;
+  line-height: 1.8;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .manifestoContentSingle {
+    padding: 40px 20px;
+    border-radius: 30px;
+  }
+  .manifestoContentSingle h2 {
+    font-size: 2.2rem;
+  }
+  .manifestoText p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Roadmap Section - Editorial Style (Light Mode) */
+.roadmap {
+  background-color: var(--color-warm-ivory);
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  min-height: 100vh;
+}
+
+.roadmapHeader {
+  text-align: center;
+  padding: 120px 0 60px;
+  position: relative;
+  z-index: 20;
+  background-color: var(--color-warm-ivory);
+}
+
+.roadmapHeader h2 {
+  color: var(--color-text-main);
+  font-size: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.stickyContainer {
+  height: 350vh; /* Consistent scroll space */
+  position: relative;
+  width: 100%;
+}
+
+.stickyWrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-warm-ivory);
+}
+
+.editorialStep {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background-color: var(--color-warm-ivory);
+}
+
+.stepBgNumber {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35rem;
+  font-weight: 900;
+  color: rgba(42, 127, 111, 0.08);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  font-family: var(--font-primary);
+  letter-spacing: -20px;
+}
+
+.stepContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 800px;
+}
+
+.stepLine {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-forest-teal);
+  margin: 0 auto 35px;
+}
+
+.stepContent .stepLabel {
+  display: block;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--color-forest-teal);
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.stepContent h3 {
+  font-family: var(--font-accent);
+  font-size: 4.8rem;
+  color: var(--color-text-main);
+  margin-bottom: 25px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.stepContent p {
+  color: var(--color-text-main);
+  opacity: 0.8;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.stepButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .roadmapHeader h2 { font-size: 2.2rem; padding: 0 20px; }
+  .stepBgNumber { font-size: 18rem; letter-spacing: -10px; }
+  .stepContent h3 { font-size: 2.8rem; }
+  .stepContent p { font-size: 1.15rem; }
+  .editorialStep { padding: 20px; }
+  .stepButtons { flex-direction: column; align-items: center; width: 100%; }
+}
+
+/* Bio Section */
+.bio {
+  background-color: var(--color-white);
+}
+
+.bioContent h2 {
+  color: var(--color-text-main);
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.bioContent .manifestoText p {
+    color: var(--color-text-main);
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+  .bioResponsive {
+    grid-template-columns: 1fr !important;
+    gap: 60px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .bioResponsive {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* FAQ Section */
+.faq {
+  background-color: var(--color-warm-ivory);
+}
+
+.faq h2 {
+    color: var(--color-text-main);
+}
+
+.faq p {
+    color: var(--color-text-main);
+    opacity: 0.7;
+}
+
+.faqItem {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(42, 127, 111, 0.1);
+  padding-bottom: 20px;
+}
+
+.faqQuestion {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--color-forest-teal);
+}
+
+.faqItem p {
+    color: var(--color-text-main);
+    opacity: 0.8;
+}
+
+/* Locations Section */
+.locations {
+  background-color: var(--color-white);
+  padding: 120px 20px;
+}
+
+.locations h2 {
+    color: var(--color-text-main);
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.locationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.locationCard {
+  background-color: var(--color-warm-ivory);
+  padding: 40px;
+  border-radius: 30px;
+  border: 1px solid rgba(42, 127, 111, 0.05);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.locationCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(42, 127, 111, 0.08);
+  border-color: rgba(42, 127, 111, 0.2);
+}
+
+.locationHeader {
+  margin-bottom: 25px;
+}
+
+.cityBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(42, 127, 111, 0.1);
+  color: var(--color-forest-teal);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.locationCard h3 {
+    color: var(--color-text-main);
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+}
+
+.locationCard p {
+    color: var(--color-text-main);
+    opacity: 0.7;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.locationActions {
+  margin-top: auto;
+}
+
+.locationLink {
+  color: var(--color-forest-teal);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.locationLink:hover {
+  opacity: 0.8;
+  padding-left: 5px;
+}
+
+@media (max-width: 1024px) {
+  .heroTitle { font-size: 2.8rem; }
+  .heroContent, .manifestoGrid, .roadmapGrid, .bioGrid, .locationGrid { grid-template-columns: 1fr; }
+  .heroImageContainer { height: 400px; order: -1; }
+  .locationGrid { max-width: 500px; }
+}
+
+@media (max-width: 600px) {
+  .heroTitle { font-size: 2.2rem; }
+  .heroButtons { flex-direction: column; }
+  .roadmapList::before { display: none; }
+  .roadmapItem { flex-direction: column; align-items: center; text-align: center; }
+}
