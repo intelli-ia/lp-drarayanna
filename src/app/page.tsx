@@ -268,7 +268,7 @@ export default function Home() {
 
               {/* Nome */}
               <h2 style={{
-                fontFamily: 'var(--font-serif)',
+                fontFamily: 'var(--font-accent)',
                 fontSize: 'clamp(2.8rem, 4vw, 3.8rem)',
                 fontWeight: 700,
                 color: 'var(--color-text-main)',
