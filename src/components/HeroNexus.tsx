@@ -17,13 +17,15 @@ import {
     AnimatePresence,
     useScroll,
     useMotionValueEvent,
+    useAnimation,
     type Transition,
     type VariantLabels,
     type Target,
-    type AnimationControls,
     type TargetAndTransition,
     type Variants,
 } from 'framer-motion';
+
+type AnimationControls = ReturnType<typeof useAnimation>;
 import { InteractiveButton } from './ui/interactive-button';
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
