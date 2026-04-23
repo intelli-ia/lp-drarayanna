@@ -196,7 +196,6 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
       <motion.span
         className={cn("inline-flex flex-wrap whitespace-pre-wrap relative align-bottom pb-[10px]", mainClassName)}
         {...rest}
-        layout
       >
         <span className="sr-only">{texts[currentTextIndex]}</span>
         <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
@@ -645,7 +644,7 @@ const HeroNexus: React.FC = () => {
                 Ninguém quer operar o filho.<br />
                 <span className="inline-flex flex-wrap justify-center items-baseline gap-x-2">
                   <span>Mas você precisa de</span>
-                  <span className="inline-block h-[1.1em] overflow-hidden align-bottom">
+                  <span className="inline-block h-[1.1em] overflow-hidden align-bottom min-w-[7em]">
                       <RotatingText
                           texts={['CONFIANÇA', 'SEGURANÇA', 'CUIDADO', 'EXPERIÊNCIA', 'CLAREZA']}
                           mainClassName="text-[#2A7F6F]"
