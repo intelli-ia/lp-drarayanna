@@ -112,8 +112,8 @@ export default function Home() {
 
       {/* Seção Manifesto com Zoom Parallax */}
       <section id="manifesto" className="bg-white" style={{ padding: 0, display: 'block' }}>
-        <div className="py-20 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight px-4">
+        <div className="py-10 sm:py-20 text-center">
+          <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight px-4">
             Medo não se resolve com remédio, se resolve com <span className="manifestoHighlight">confiança.</span>
           </h2>
         </div>
@@ -121,8 +121,8 @@ export default function Home() {
         <ZoomParallax
           images={manifestoImages}
           overlayContent={
-            <div className="max-w-[700px] text-center px-10 py-14 rounded-3xl" style={{ background: 'rgba(255,255,255,0.96)', backdropFilter: 'blur(8px)' }}>
-              <div className="text-gray-600 text-xl md:text-2xl leading-relaxed space-y-6">
+            <div className="max-w-[700px] text-center px-5 py-8 sm:px-10 sm:py-14 rounded-2xl sm:rounded-3xl" style={{ background: 'rgba(255,255,255,0.96)', backdropFilter: 'blur(8px)' }}>
+              <div className="text-gray-600 text-sm sm:text-base md:text-xl leading-relaxed space-y-3 sm:space-y-6">
                 <p>Em 21 anos de experiência como cirurgiã pediátrica, aprendi que o maior medo dos pais não é tanto a doença em si. É não entender o que está acontecendo com o filho e não saber em quem confiar.</p>
                 <p>Isso não precisa ser assim. Uma família bem informada passa por esse processo com tranquilidade. E a decisão certa só é possível quando há informação, escuta e confiança.</p>
                 <p className="font-semibold text-gray-800">No meu consultório, estarei ao seu lado em cada etapa.</p>
@@ -195,7 +195,7 @@ export default function Home() {
 
 
       {/* Dobra 4: Bio */}
-      <section id="quem-sou" style={{ background: 'var(--color-warm-ivory)', padding: '120px 20px', overflow: 'hidden' }}>
+      <section id="quem-sou" className="!py-16 !px-5 sm:!py-[120px] overflow-hidden" style={{ background: 'var(--color-warm-ivory)' }}>
         <div className="container" style={{ maxWidth: 'var(--max-width)', margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }} className="bioResponsive">
 
@@ -238,7 +238,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
                 style={{
-                  position: 'absolute', bottom: '36px', right: '-28px',
+                  position: 'absolute', bottom: '20px', right: '12px',
                   background: 'white',
                   borderRadius: '18px',
                   padding: '18px 26px',
@@ -346,7 +346,7 @@ export default function Home() {
       {/* Dobra 5: FAQ */}
       <section id="faq" className="faq">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <span className="badge">FAQ</span>
             <h2>Perguntas Frequentes</h2>
             <p className="max-w-2xl mx-auto opacity-70">
@@ -380,7 +380,7 @@ export default function Home() {
       {/* Dobra 6: Onde atende? */}
       <section id="locais" className="locations">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <span className="badge">Unidades</span>
             <h2>Onde encontrar a Dra. Rayanna</h2>
             <p className="max-w-2xl mx-auto opacity-70">Consultórios preparados para receber sua família com conforto e segurança.</p>
@@ -419,11 +419,10 @@ export default function Home() {
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '80px' }}>
-             <InteractiveButton 
-               text="Agendar meu horário" 
-               href="https://wa.me/5571999999999" 
+             <InteractiveButton
+               text="Agendar meu horário"
+               href="https://wa.me/5571999999999"
                target="_blank"
-               className="px-14 py-6 text-xl"
              />
           </div>
         </div>

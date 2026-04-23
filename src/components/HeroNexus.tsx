@@ -569,11 +569,11 @@ const HeroNexus: React.FC = () => {
             initial="top"
             animate="top"
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="px-6 w-full md:px-10 lg:px-16 z-30 backdrop-blur-md"
+            className="px-4 sm:px-6 w-full md:px-10 lg:px-16 z-30 backdrop-blur-md"
         >
-            <nav className="flex justify-between items-center max-w-screen-xl mx-auto h-[80px]">
+            <nav className="flex justify-between items-center max-w-screen-xl mx-auto h-[54px] sm:h-[80px]">
                 <div className="flex items-center flex-shrink-0">
-                    <span className="text-xl font-bold text-[#2D3436]">Dra. Rayanna<span className="text-[#2A7F6F]"> Almeida</span></span>
+                    <span className="text-[13px] sm:text-xl font-bold text-[#2D3436]">Dra. Rayanna<span className="text-[#2A7F6F]"> Almeida</span></span>
                 </div>
 
                 <div className="hidden md:flex items-center justify-center flex-grow space-x-6 lg:space-x-8 px-4">
@@ -584,11 +584,11 @@ const HeroNexus: React.FC = () => {
                     <NavLink href="#faq">Dúvidas</NavLink>
                 </div>
 
-                <div className="flex items-center flex-shrink-0 space-x-4 lg:space-x-6">
+                <div className="flex items-center flex-shrink-0 space-x-3 sm:space-x-4 lg:space-x-6">
                     <motion.a
                         href="https://wa.me/5571999999999"
                         target="_blank"
-                        className="bg-[#2A7F6F] text-white px-6 py-[10px] rounded-full text-sm font-semibold hover:bg-[#1E5C50] transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md"
+                        className="bg-[#2A7F6F] text-white px-4 py-[6px] sm:px-6 sm:py-[10px] rounded-full text-[11px] sm:text-sm font-semibold hover:bg-[#1E5C50] transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -624,7 +624,7 @@ const HeroNexus: React.FC = () => {
             </AnimatePresence>
         </motion.header>
 
-        <main className="flex-grow flex flex-col items-center justify-center text-center px-4 pt-[80px] relative z-10">
+        <main className="flex-grow flex flex-col items-center justify-center text-center px-4 pt-[54px] sm:pt-[80px] relative z-10">
 
             <motion.div
                 variants={bannerVariants}
@@ -632,19 +632,19 @@ const HeroNexus: React.FC = () => {
                 animate="visible"
                 className="mb-8"
             >
-                <ShinyText text="Salvador · Feira de Santana · 21 anos de experiência" className="bg-[#2A7F6F]/10 border border-[#2A7F6F]/20 text-[#2A7F6F] px-5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide" />
+                <ShinyText text="Salvador · Feira de Santana · 21 anos de experiência" className="bg-[#2A7F6F]/10 border border-[#2A7F6F]/20 text-[#2A7F6F] px-3 py-1 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide whitespace-nowrap" />
             </motion.div>
 
             <motion.h1
                 variants={headlineVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-4xl sm:text-5xl lg:text-[72px] font-bold text-[#2D3436] leading-tight max-w-screen-xl mb-6"
+                className="text-2xl sm:text-[2.5rem] md:text-5xl lg:text-[72px] font-bold text-[#2D3436] leading-tight max-w-screen-xl mb-6"
             >
                 Ninguém quer operar o filho.<br />
                 <span className="inline-flex flex-wrap justify-center items-baseline gap-x-2">
                   <span>Mas você precisa de</span>
-                  <span className="inline-block h-[1.1em] overflow-hidden align-bottom min-w-[7em]">
+                  <span className="inline-block h-[1.1em] overflow-hidden align-bottom min-w-[7em] sm:min-w-[6.5em] lg:min-w-[7em]">
                       <RotatingText
                           texts={['CONFIANÇA', 'SEGURANÇA', 'CUIDADO', 'EXPERIÊNCIA', 'CLAREZA']}
                           mainClassName="text-[#2A7F6F]"
@@ -664,7 +664,7 @@ const HeroNexus: React.FC = () => {
                 variants={subHeadlineVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
+                className="text-[11px] sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-10 leading-relaxed"
             >
                 Atendo crianças com as condições cirúrgicas mais comuns da infância: fimose, hérnias, testículo não descido e muito mais. Em cada caso, a família sai da consulta sabendo exatamente o que está acontecendo e qual é o melhor caminho.
             </motion.p>

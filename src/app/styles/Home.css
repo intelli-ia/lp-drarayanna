@@ -283,12 +283,23 @@
 }
 
 @media (max-width: 768px) {
-  .roadmapHeader h2 { font-size: 2.2rem; padding: 0 20px; }
-  .stepBgNumber { font-size: 18rem; letter-spacing: -10px; }
-  .stepContent h3 { font-size: 2.8rem; }
-  .stepContent p { font-size: 1.15rem; }
+  .roadmapHeader { padding: 80px 20px 40px; }
+  .roadmapHeader h2 { font-size: 2.2rem; padding: 0; }
+  .stepBgNumber { font-size: 14rem; letter-spacing: -8px; }
+  .stepContent h3 { font-size: 2.4rem; }
+  .stepContent p { font-size: 1.1rem; }
   .editorialStep { padding: 20px; }
   .stepButtons { flex-direction: column; align-items: center; width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .roadmapHeader { padding: 52px 16px 28px; }
+  .roadmapHeader h2 { font-size: 1.75rem; }
+  .stepBgNumber { font-size: 8rem; letter-spacing: -4px; }
+  .stepContent h3 { font-size: 1.9rem; }
+  .stepContent p { font-size: 1rem; }
+  .stepContent .stepLabel { font-size: 0.8rem; letter-spacing: 2px; }
+  .bioResponsive { gap: 28px !important; }
 }
 
 /* Bio Section */
@@ -446,9 +457,26 @@
   .locationGrid { max-width: 500px; }
 }
 
+@media (max-width: 768px) {
+  .locationGrid { grid-template-columns: 1fr; max-width: 100%; }
+  .locationCard { padding: 24px; border-radius: 20px; }
+  .locationCard h3 { font-size: 1.4rem; }
+  .locationCard p { font-size: 0.95rem; margin-bottom: 20px; }
+  .locations h2 { font-size: 2rem; }
+  .locations { padding: 80px 20px; }
+  .faq h2 { font-size: 2rem; }
+}
+
 @media (max-width: 600px) {
   .heroTitle { font-size: 2.2rem; }
   .heroButtons { flex-direction: column; }
   .roadmapList::before { display: none; }
   .roadmapItem { flex-direction: column; align-items: center; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .locationCard { padding: 20px; border-radius: 16px; }
+  .locations { padding: 56px 16px; }
+  .faq { padding: 56px 16px 64px; }
+  .cityBadge { font-size: 0.7rem; }
 }

@@ -145,3 +145,9 @@ section {
     padding: 60px 20px;
   }
 }
+
+@media (max-width: 480px) {
+  section {
+    padding: 48px 16px;
+  }
+}

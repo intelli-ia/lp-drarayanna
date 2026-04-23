@@ -21,7 +21,15 @@ export function HeroScrollDemo() {
           alt="Dra. Rayanna Almeida - Especialidades"
           height={720}
           width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
+          className="mx-auto rounded-2xl h-full object-cover object-left-top hidden sm:block"
+          draggable={false}
+        />
+        <Image
+          src="/images/hero-scroll-mobile.png"
+          alt="Dra. Rayanna Almeida - Especialidades"
+          height={1000}
+          width={480}
+          className="mx-auto rounded-2xl h-full w-full object-cover object-top sm:hidden"
           draggable={false}
         />
       </ContainerScroll>
