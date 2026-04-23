@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { useScroll, useTransform, useSpring, motion, MotionValue } from "framer-motion";
 
 export const ContainerScroll = ({
   titleComponent,
@@ -30,9 +30,15 @@ export const ContainerScroll = ({
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const springConfig = { stiffness: 60, damping: 20, mass: 1.2 };
+
+  const rotateRaw = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const scaleRaw = useTransform(scrollYProgress, [0, 1], scaleDimensions());
+  const translateRaw = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
+  const rotate = useSpring(rotateRaw, springConfig);
+  const scale = useSpring(scaleRaw, springConfig);
+  const translate = useSpring(translateRaw, springConfig);
 
   return (
     <div
