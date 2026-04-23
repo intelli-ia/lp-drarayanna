@@ -32,7 +32,7 @@ export const InteractiveButton = ({
   );
 
   const baseClasses = cn(
-    "group relative cursor-pointer px-3 py-1.5 sm:px-10 sm:py-5 border rounded-full overflow-hidden text-center font-semibold transition-all duration-300 inline-block shadow-sm hover:shadow-md",
+    "group relative cursor-pointer px-5 py-2.5 sm:px-7 sm:py-3 text-sm border rounded-full overflow-hidden text-center font-semibold transition-all duration-300 inline-block shadow-sm hover:shadow-md",
     variant === 'primary' ? "bg-[#2A7F6F] text-white border-[#2A7F6F]" : "bg-transparent text-[#2A7F6F] border-[#2A7F6F] hover:bg-[#2A7F6F]/5",
     className
   );

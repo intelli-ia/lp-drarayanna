@@ -26,6 +26,7 @@ import {
 } from 'framer-motion';
 
 type AnimationControls = ReturnType<typeof useAnimation>;
+import Image from 'next/image';
 import { InteractiveButton } from './ui/interactive-button';
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
@@ -569,22 +570,14 @@ const HeroNexus: React.FC = () => {
             initial="top"
             animate="top"
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="px-4 sm:px-6 w-full md:px-10 lg:px-16 z-30 backdrop-blur-md"
+            className="w-full lg:w-1/2 px-4 sm:px-6 lg:px-10 z-30 backdrop-blur-md"
         >
-            <nav className="flex justify-between items-center max-w-screen-xl mx-auto h-[54px] sm:h-[80px]">
+            <nav className="flex justify-between items-center h-[54px] sm:h-[80px]">
                 <div className="flex items-center flex-shrink-0">
                     <span className="text-[13px] sm:text-xl font-bold text-[#2D3436]">Dra. Rayanna<span className="text-[#2A7F6F]"> Almeida</span></span>
                 </div>
 
-                <div className="hidden md:flex items-center justify-center flex-grow space-x-6 lg:space-x-8 px-4">
-                    <NavLink href="#hero">Início</NavLink>
-                    <NavLink href="#manifesto">Manifesto</NavLink>
-                    <NavLink href="#metodo">Método</NavLink>
-                    <NavLink href="#quem-sou">Quem sou</NavLink>
-                    <NavLink href="#faq">Dúvidas</NavLink>
-                </div>
-
-                <div className="flex items-center flex-shrink-0 space-x-3 sm:space-x-4 lg:space-x-6">
+                <div className="flex items-center flex-shrink-0 space-x-3 sm:space-x-4">
                     <motion.a
                         href="https://wa.me/5571999999999"
                         target="_blank"
@@ -596,7 +589,7 @@ const HeroNexus: React.FC = () => {
                     </motion.a>
 
                     <motion.button
-                        className="md:hidden text-gray-800 hover:text-[#2A7F6F] z-50"
+                        className="text-gray-800 hover:text-[#2A7F6F] z-50"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle menu"
                     >
@@ -610,7 +603,7 @@ const HeroNexus: React.FC = () => {
                     <motion.div
                         key="mobile-menu"
                         variants={mobileMenuVariants} initial="hidden" animate="visible" exit="exit"
-                        className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg py-4 border-t border-gray-100"
+                        className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg py-4 border-t border-gray-100"
                     >
                         <div className="flex flex-col items-center space-y-4 px-6">
                             <NavLink href="#hero" onClick={() => setIsMobileMenuOpen(false)}>Início</NavLink>
@@ -624,79 +617,131 @@ const HeroNexus: React.FC = () => {
             </AnimatePresence>
         </motion.header>
 
-        <main className="flex-grow flex flex-col items-center justify-center text-center px-4 pt-[54px] sm:pt-[80px] relative z-10">
+        <main className="flex-grow flex flex-col lg:flex-row relative z-10">
 
-            <motion.div
-                variants={bannerVariants}
-                initial="hidden"
-                animate="visible"
-                className="mb-8"
-            >
-                <ShinyText text="Salvador · Feira de Santana · 21 anos de experiência" className="bg-[#2A7F6F]/10 border border-[#2A7F6F]/20 text-[#2A7F6F] px-3 py-1 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide whitespace-nowrap" />
-            </motion.div>
+            {/* ── Coluna esquerda: conteúdo ── */}
+            <div className="flex flex-grow flex-col items-center justify-center text-center lg:flex-grow-0 lg:items-start lg:text-left lg:w-1/2 px-4 lg:pl-16 xl:pl-24 lg:pr-12 py-[54px] sm:py-[80px] lg:pt-[80px] lg:pb-0">
 
-            <motion.h1
-                variants={headlineVariants}
-                initial="hidden"
-                animate="visible"
-                className="text-2xl sm:text-[2.5rem] md:text-5xl lg:text-[72px] font-bold text-[#2D3436] leading-tight max-w-screen-xl mb-6"
-            >
-                Ninguém quer operar o filho.<br />
-                <span className="inline-flex flex-wrap justify-center items-baseline gap-x-2">
-                  <span>Mas você precisa de</span>
-                  <span className="inline-block h-[1.1em] overflow-hidden align-bottom min-w-[7em] sm:min-w-[6.5em] lg:min-w-[7em]">
-                      <RotatingText
-                          texts={['CONFIANÇA', 'SEGURANÇA', 'CUIDADO', 'EXPERIÊNCIA', 'CLAREZA']}
-                          mainClassName="text-[#2A7F6F]"
-                          staggerFrom={"last"}
-                          initial={{ y: "-100%", opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          exit={{ y: "110%", opacity: 0 }}
-                          transition={{ type: "spring", damping: 18, stiffness: 250 }}
-                          rotationInterval={2500}
-                          splitBy="characters"
-                      />
-                  </span>
-                </span>
-            </motion.h1>
+                <motion.div
+                    variants={bannerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="mb-6 sm:mb-8"
+                >
+                    <ShinyText text="Salvador · Feira de Santana · 21 anos de experiência" className="bg-[#2A7F6F]/10 border border-[#2A7F6F]/20 text-[#2A7F6F] px-3 py-1 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide whitespace-nowrap" />
+                </motion.div>
 
-            <motion.p
-                variants={subHeadlineVariants}
-                initial="hidden"
-                animate="visible"
-                className="text-[11px] sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-10 leading-relaxed"
-            >
-                Atendo crianças com as condições cirúrgicas mais comuns da infância: fimose, hérnias, testículo não descido e muito mais. Em cada caso, a família sai da consulta sabendo exatamente o que está acontecendo e qual é o melhor caminho.
-            </motion.p>
+                <motion.h1
+                    variants={headlineVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-bold text-[#2D3436] mb-6"
+                    style={{ lineHeight: 1.3 }}
+                >
+                    Ninguém quer operar o filho.<br />
+                    Mas quando é necessário,<br />
+                    <span className="inline-flex flex-wrap justify-center lg:justify-start items-baseline gap-x-2">
+                      <span>você precisa de alguém em quem</span>
+                      <span className="inline-block h-[1.1em] overflow-hidden align-bottom min-w-[6em] sm:min-w-[6em] lg:min-w-[6em]">
+                          <RotatingText
+                              texts={['CONFIAR', 'ACREDITAR', 'DEPENDER', 'CONTAR', 'CRER']}
+                              mainClassName="text-[#2A7F6F]"
+                              staggerFrom={"last"}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.5, ease: "easeInOut" }}
+                              rotationInterval={2500}
+                              splitBy="characters"
+                          />
+                      </span>
+                    </span>
+                </motion.h1>
 
-            <motion.div
-                variants={ctaVariants}
-                initial="hidden"
-                animate="visible"
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto"
-            >
-                <InteractiveButton 
-                    text="Agendar Consulta"
-                    href="https://wa.me/5571999999999"
-                    target="_blank"
-                    className="w-full sm:w-auto"
-                />
-                <InteractiveButton 
-                    text="Saiba mais"
-                    href="#manifesto"
-                    variant="secondary"
-                    className="w-full sm:w-auto"
-                />
-            </motion.div>
+                <motion.p
+                    variants={subHeadlineVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="text-[11px] sm:text-base lg:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-10 leading-relaxed"
+                >
+                    Atendo crianças com as condições cirúrgicas mais comuns da infância: fimose, hérnias, testículo não descido e muito mais. Em cada caso, a família sai da consulta sabendo exatamente o que está acontecendo e qual é o melhor caminho.
+                </motion.p>
 
-            <motion.div
-                variants={infoVariants}
-                initial="hidden"
-                animate="visible"
-                className="mt-16 text-gray-500 uppercase tracking-widest text-[10px] sm:text-xs font-semibold"
-            >
-               Especialista em Cirurgia e Urologia Pediátrica
-            </motion.div>
+                <motion.div
+                    variants={ctaVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 w-full max-w-md lg:max-w-none mx-auto lg:mx-0 mb-10 lg:mb-12"
+                >
+                    <InteractiveButton
+                        text="Agendar Consulta"
+                        href="https://wa.me/5571999999999"
+                        target="_blank"
+                        className="w-full sm:w-auto"
+                    />
+                    <InteractiveButton
+                        text="Saiba mais"
+                        href="#manifesto"
+                        variant="secondary"
+                        className="w-full sm:w-auto"
+                    />
+                </motion.div>
+
+                {/* Prova social */}
+                <motion.div
+                    variants={infoVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex items-center justify-center lg:justify-start gap-2 sm:gap-4"
+                >
+                    <div className="flex -space-x-2 sm:-space-x-3">
+                        {[
+                            'https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                            'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                            'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                            'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                        ].map((src, i) => (
+                            <div key={i} className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border-2 border-white flex-shrink-0 overflow-hidden relative">
+                                <Image src={src} alt="Família paciente" width={40} height={40} className="object-cover w-full h-full" />
+                            </div>
+                        ))}
+                    </div>
+                    <div className="text-left">
+                        <p className="font-bold text-[#2D3436] text-[11px] sm:text-sm">+20 anos de Experiência</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500">Centenas de Crianças atendidas</p>
+                    </div>
+                </motion.div>
+
+            </div>
+
+            {/* ── Coluna direita: foto (apenas desktop) ── */}
+            <div className="hidden lg:block lg:w-1/2 relative">
+                {/* Foto principal contida */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <Image
+                        src="/images/dra-com-paciente.png"
+                        alt="Dra. Rayanna Almeida com paciente"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                    />
+                </div>
+                {/* Card flutuante — fora do overflow-hidden, aparece completo */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30, x: 20 }}
+                    animate={{ opacity: 1, y: 0, x: 0 }}
+                    transition={{ delay: 0.9, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+                    className="absolute bottom-10 left-[-28px] w-[200px] h-[158px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-10"
+                >
+                    <Image
+                        src="/images/dra-escrevendo.png"
+                        alt="Dra. Rayanna no consultório"
+                        fill
+                        className="object-cover object-top"
+                    />
+                </motion.div>
+            </div>
+
         </main>
     </div>
   );
