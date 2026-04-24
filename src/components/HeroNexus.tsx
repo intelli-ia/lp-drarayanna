@@ -698,26 +698,24 @@ const HeroNexus: React.FC = () => {
                 variants={headlineVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-bold text-[#2D3436] mb-6"
-                style={{ lineHeight: 1.3 }}
+                className="font-bold text-[#2D3436] mb-6"
+                style={{ fontSize: 'clamp(22px, 2.4vw, 44px)', lineHeight: 1.3 }}
               >
-                Ninguém quer operar o filho.<br />
-                Mas quando é necessário,<br />
-                <span className="inline-flex flex-wrap justify-center lg:justify-start items-baseline gap-x-2">
-                  <span>você precisa de alguém em quem</span>
-                  <span className="inline-block h-[1.1em] overflow-hidden align-bottom min-w-[6em] sm:min-w-[6em] lg:min-w-[6em]">
-                    <RotatingText
-                      texts={['CONFIAR', 'ACREDITAR', 'DEPENDER', 'CONTAR', 'CRER']}
-                      mainClassName="text-[#2A7F6F]"
-                      staggerFrom={"last"}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
-                      rotationInterval={2500}
-                      splitBy="characters"
-                    />
-                  </span>
+                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>Ninguém quer operar o filho.</span>
+                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>Mas quando é necessário,</span>
+                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>você precisa de alguém em quem</span>
+                <span style={{ display: 'block' }}>
+                  <RotatingText
+                    texts={['CONFIAR', 'ACREDITAR', 'DEPENDER', 'CONTAR', 'CRER']}
+                    mainClassName="text-[#2A7F6F]"
+                    staggerFrom="last"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    rotationInterval={2500}
+                    splitBy="characters"
+                  />
                 </span>
               </motion.h1>
 
