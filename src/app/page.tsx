@@ -285,7 +285,7 @@ export default function Home() {
               {/* Texto */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '48px' }}>
                 <p style={{ color: 'var(--color-text-main)', opacity: 0.72, lineHeight: 1.85, fontSize: '1rem' }}>
-                  Sou médica há 27 anos e cirurgiã pediátrica há quase 21. Nesse tempo, operei, acompanhei e orientei centenas de famílias em Salvador e Feira de Santana no Hospital da Irmã Dulce, na Maternidade de Referência e no Hospital da Criança.
+                  Sou médica há 27 anos e cirurgiã pediátrica há quase 21. Nesse tempo, operei, acompanhei e orientei centenas de famílias em Salvador no Hospital da Irmã Dulce e na Maternidade de Referência.
                 </p>
                 <p style={{ color: 'var(--color-text-main)', opacity: 0.72, lineHeight: 1.85, fontSize: '1rem' }}>
                   Hoje atendo em Salvador, nas clínicas Geort e Vita Salute, levando para o consultório particular a mesma seriedade e cuidado que aprendi nos anos de hospital.
@@ -370,7 +370,7 @@ export default function Home() {
               },
               {
                 question: "Onde são realizadas as cirurgias?",
-                answer: "As cirurgias são realizadas nos principais hospitais de Salvador e Feira de Santana, garantindo toda a infraestrutura e segurança necessária para o seu filho."
+                answer: "As cirurgias são realizadas nos principais hospitais de Salvador, garantindo toda a infraestrutura e segurança necessária para o seu filho."
               }
             ]}
           />
@@ -386,7 +386,7 @@ export default function Home() {
             <p className="max-w-2xl mx-auto opacity-70">Consultórios preparados para receber sua família com conforto e segurança.</p>
           </div>
           
-          <div className="locationGrid">
+          <div className="locationGrid" style={{ gridTemplateColumns: '1fr', maxWidth: '520px', margin: '0 auto' }}>
             <div className="locationCard">
               <div className="locationHeader">
                 <span className="cityBadge">Salvador</span>
@@ -405,17 +405,6 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="locationCard">
-              <div className="locationHeader">
-                <span className="cityBadge">Feira de Santana</span>
-                <h3>Hospital da Criança</h3>
-              </div>
-              <p>Referência em atendimento pediátrico na região, oferecendo suporte completo para consultas e procedimentos.</p>
-              <div className="locationActions">
-                <a href="https://share.google/MagHlO84L0YLlDtsX" target="_blank" rel="noopener noreferrer" className="locationLink">Ver no Mapa →</a>
-                <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', opacity: 0.55, marginTop: '4px', marginBottom: 0 }}>Hospital da Criança de Feira de Santana</p>
-              </div>
-            </div>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '80px' }}>

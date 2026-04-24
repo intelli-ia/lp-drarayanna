@@ -585,39 +585,14 @@ const HeroNexus: React.FC = () => {
 
           {/* Header fixo */}
           <div className="bg-white"
-            style={{ position: 'sticky', top: 0, zIndex: 50, height: '64px', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
+            style={{ position: 'sticky', top: 0, zIndex: 50, height: '64px', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
 
             <span style={{ fontSize: '13px', fontWeight: 700, color: '#2D3436' }}>
               Dra. Rayanna<span style={{ color: '#2A7F6F' }}> Almeida</span>
+              <span style={{ color: '#9CA3AF', fontWeight: 400, marginLeft: '6px' }}>| Salvador</span>
             </span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <a href="https://wa.me/5571999999999" target="_blank"
-                style={{ background: '#2A7F6F', color: 'white', padding: '0 20px', height: '40px', borderRadius: '999px', fontSize: '11px', fontWeight: 600, display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>
-                Agende Agora
-              </a>
-              <button style={{ color: '#2D3436', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
-                {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-              </button>
-            </div>
           </div>
 
-          {/* Menu mobile — absolute para não deslocar o layout */}
-          <AnimatePresence>
-            {isMobileMenuOpen && (
-              <motion.div key="mobile-menu-m" variants={mobileMenuVariants} initial="hidden" animate="visible" exit="exit"
-                className="bg-white py-4 border-t border-gray-100 shadow-lg"
-                style={{ position: 'absolute', top: '64px', left: 0, right: 0, zIndex: 49 }}>
-                <div className="flex flex-col items-center space-y-4">
-                  <NavLink href="#hero" onClick={() => setIsMobileMenuOpen(false)}>Início</NavLink>
-                  <NavLink href="#manifesto" onClick={() => setIsMobileMenuOpen(false)}>Manifesto</NavLink>
-                  <NavLink href="#metodo" onClick={() => setIsMobileMenuOpen(false)}>Método</NavLink>
-                  <NavLink href="#quem-sou" onClick={() => setIsMobileMenuOpen(false)}>Quem sou</NavLink>
-                  <NavLink href="#faq" onClick={() => setIsMobileMenuOpen(false)}>Dúvidas</NavLink>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
 
           {/* Espaço entre header e card — foto visível aqui */}
           <div style={{ height: '160px' }} />
@@ -636,30 +611,13 @@ const HeroNexus: React.FC = () => {
               gap: '14px',
             }}>
 
-              {/* Badge */}
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: 'rgba(42,127,111,0.08)', border: '1px solid rgba(42,127,111,0.2)', color: '#2A7F6F', padding: '3px 10px', borderRadius: '999px', fontSize: '9px', fontWeight: 600, letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
-                <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#2A7F6F', flexShrink: 0 }} />
-                Salvador · Feira de Santana · 21 anos de experiência
-              </span>
 
               {/* Headline */}
               <h1 style={{ fontSize: '17px', fontWeight: 700, color: '#2D3436', lineHeight: 1.3, width: '100%', margin: 0 }}>
                 Ninguém quer operar o filho.<br />
                 Mas quando é necessário,<br />
                 você precisa de alguém em quem<br />
-                <RotatingText
-                  texts={['CONFIAR', 'ACREDITAR', 'DEPENDER', 'CONTAR', 'CRER']}
-                  mainClassName="text-[#2A7F6F] !pb-0"
-                  staggerFrom="first"
-                  staggerDuration={0.04}
-                  initial={{ opacity: 0, y: 0 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 0 }}
-                  transition={{ duration: 0.3, ease: 'easeIn' }}
-                  animatePresenceInitial={true}
-                  rotationInterval={2500}
-                  splitBy="characters"
-                />
+                <span style={{ color: '#2A7F6F' }}>CONFIAR</span>
               </h1>
 
               {/* Parágrafo */}
@@ -724,52 +682,17 @@ const HeroNexus: React.FC = () => {
           >
             <nav className="flex justify-between items-center h-[54px] sm:h-[80px]">
               <div className="flex items-center flex-shrink-0">
-                <span className="text-[13px] sm:text-xl font-bold text-[#2D3436]">Dra. Rayanna<span className="text-[#2A7F6F]"> Almeida</span></span>
-              </div>
-              <div className="flex items-center flex-shrink-0 space-x-3 sm:space-x-4">
-                <motion.a
-                  href="https://wa.me/5571999999999"
-                  target="_blank"
-                  className="bg-[#2A7F6F] text-white px-4 py-[6px] sm:px-6 sm:py-[10px] rounded-full text-[11px] sm:text-sm font-semibold hover:bg-[#1E5C50] transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Agende Agora
-                </motion.a>
-                <motion.button
-                  className="text-gray-800 hover:text-[#2A7F6F] z-50"
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  aria-label="Toggle menu"
-                >
-                  {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-                </motion.button>
+                <span className="text-[13px] sm:text-xl font-bold text-[#2D3436]">
+                  Dra. Rayanna<span className="text-[#2A7F6F]"> Almeida</span>
+                  <span className="text-gray-400 font-normal ml-2 text-[12px] sm:text-base">| Salvador</span>
+                </span>
               </div>
             </nav>
-            <AnimatePresence>
-              {isMobileMenuOpen && (
-                <motion.div
-                  key="mobile-menu"
-                  variants={mobileMenuVariants} initial="hidden" animate="visible" exit="exit"
-                  className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg py-4 border-t border-gray-100"
-                >
-                  <div className="flex flex-col items-center space-y-4 px-6">
-                    <NavLink href="#hero" onClick={() => setIsMobileMenuOpen(false)}>Início</NavLink>
-                    <NavLink href="#manifesto" onClick={() => setIsMobileMenuOpen(false)}>Manifesto</NavLink>
-                    <NavLink href="#metodo" onClick={() => setIsMobileMenuOpen(false)}>Método</NavLink>
-                    <NavLink href="#quem-sou" onClick={() => setIsMobileMenuOpen(false)}>Quem sou</NavLink>
-                    <NavLink href="#faq" onClick={() => setIsMobileMenuOpen(false)}>Dúvidas</NavLink>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </motion.header>
 
           <main className="flex-grow flex flex-col lg:flex-row relative z-10">
             <div className="flex flex-grow flex-col items-center justify-center text-center lg:flex-grow-0 lg:items-start lg:text-left lg:w-1/2 px-4 lg:pl-16 xl:pl-24 lg:pr-12 py-[54px] sm:py-[80px] lg:pt-[80px] lg:pb-0">
 
-              <motion.div variants={bannerVariants} initial="hidden" animate="visible" className="mb-6 sm:mb-8">
-                <ShinyText text="Salvador · Feira de Santana · 21 anos de experiência" className="bg-[#2A7F6F]/10 border border-[#2A7F6F]/20 text-[#2A7F6F] px-3 py-1 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide whitespace-nowrap" />
-              </motion.div>
 
               <motion.h1
                 variants={headlineVariants}

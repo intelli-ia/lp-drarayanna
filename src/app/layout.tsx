@@ -4,7 +4,7 @@ import { FacebookPixel } from "./components/FacebookPixel";
 
 export const metadata: Metadata = {
   title: "Dra. Rayanna Almeida | Cirurgia Pediátrica",
-  description: "Especialista em cirurgia pediátrica com mais de 20 anos de experiência em Salvador e Feira de Santana.",
+  description: "Especialista em cirurgia pediátrica com mais de 20 anos de experiência em Salvador.",
 };
 
 export default function RootLayout({
