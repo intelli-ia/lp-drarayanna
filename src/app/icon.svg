@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Fundo verde arredondado -->
+  <rect width="32" height="32" rx="8" fill="#2A7F6F"/>
+  <!-- Hastes do estetoscópio -->
+  <line x1="9"  y1="5" x2="9"  y2="9" stroke="white" stroke-width="2"   stroke-linecap="round"/>
+  <line x1="23" y1="5" x2="23" y2="9" stroke="white" stroke-width="2"   stroke-linecap="round"/>
+  <!-- Tubo em U -->
+  <path d="M9 9 Q9 20 16 20 Q23 20 23 9" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <!-- Haste vertical -->
+  <line x1="16" y1="20" x2="16" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <!-- Campânula (círculo externo) -->
+  <circle cx="16" cy="26" r="3"   stroke="white" stroke-width="1.8"/>
+  <!-- Ponto interno da campânula -->
+  <circle cx="16" cy="26" r="1.2" fill="white"/>
+</svg>
