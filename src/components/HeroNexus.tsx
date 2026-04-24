@@ -559,190 +559,308 @@ const HeroNexus: React.FC = () => {
     };
 
   return (
-    <div className="relative bg-[#FFFFFF] text-gray-800 min-h-screen flex flex-col overflow-x-hidden" id="hero">
-        <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-40" />
-        <div className="absolute inset-0 z-1 pointer-events-none" style={{
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, #FFFFFF 90%), radial-gradient(ellipse at center, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 95%)'
-        }}></div>
+    <div id="hero">
 
-        <motion.header
+      {/* ═══════════════════════════════════════════
+           LAYOUT MOBILE  — oculto em lg+
+          ═══════════════════════════════════════════ */}
+      <div className="lg:hidden relative" style={{ minHeight: '100vh' }}>
+
+        {/* Imagem full-screen como fundo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/dra-com-paciente.png"
+            alt="Dra. Rayanna Almeida"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          {/* Gradiente sutil no rodapé */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 45%)' }} />
+        </div>
+
+        {/* Camada de conteúdo */}
+        <div className="relative z-10" style={{ minHeight: '100vh' }}>
+
+          {/* Header fixo */}
+          <div className="bg-white"
+            style={{ position: 'sticky', top: 0, zIndex: 50, height: '64px', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
+
+            <span style={{ fontSize: '13px', fontWeight: 700, color: '#2D3436' }}>
+              Dra. Rayanna<span style={{ color: '#2A7F6F' }}> Almeida</span>
+            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <a href="https://wa.me/5571999999999" target="_blank"
+                style={{ background: '#2A7F6F', color: 'white', padding: '0 20px', height: '40px', borderRadius: '999px', fontSize: '11px', fontWeight: 600, display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>
+                Agende Agora
+              </a>
+              <button style={{ color: '#2D3436', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
+                {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+              </button>
+            </div>
+          </div>
+
+          {/* Menu mobile — absolute para não deslocar o layout */}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div key="mobile-menu-m" variants={mobileMenuVariants} initial="hidden" animate="visible" exit="exit"
+                className="bg-white py-4 border-t border-gray-100 shadow-lg"
+                style={{ position: 'absolute', top: '64px', left: 0, right: 0, zIndex: 49 }}>
+                <div className="flex flex-col items-center space-y-4">
+                  <NavLink href="#hero" onClick={() => setIsMobileMenuOpen(false)}>Início</NavLink>
+                  <NavLink href="#manifesto" onClick={() => setIsMobileMenuOpen(false)}>Manifesto</NavLink>
+                  <NavLink href="#metodo" onClick={() => setIsMobileMenuOpen(false)}>Método</NavLink>
+                  <NavLink href="#quem-sou" onClick={() => setIsMobileMenuOpen(false)}>Quem sou</NavLink>
+                  <NavLink href="#faq" onClick={() => setIsMobileMenuOpen(false)}>Dúvidas</NavLink>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Espaço entre header e card — foto visível aqui */}
+          <div style={{ height: '160px' }} />
+
+          {/* Card flutuante */}
+          <div style={{ padding: '0 16px', paddingBottom: '20px' }}>
+            <div style={{
+              background: 'white',
+              borderRadius: '20px',
+              padding: '22px 20px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              gap: '14px',
+            }}>
+
+              {/* Badge */}
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: 'rgba(42,127,111,0.08)', border: '1px solid rgba(42,127,111,0.2)', color: '#2A7F6F', padding: '3px 10px', borderRadius: '999px', fontSize: '9px', fontWeight: 600, letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+                <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#2A7F6F', flexShrink: 0 }} />
+                Salvador · Feira de Santana · 21 anos de experiência
+              </span>
+
+              {/* Headline */}
+              <h1 style={{ fontSize: '17px', fontWeight: 700, color: '#2D3436', lineHeight: 1.3, width: '100%', margin: 0 }}>
+                Ninguém quer operar o filho.<br />
+                Mas quando é necessário,<br />
+                você precisa de alguém em quem<br />
+                <RotatingText
+                  texts={['CONFIAR', 'ACREDITAR', 'DEPENDER', 'CONTAR', 'CRER']}
+                  mainClassName="text-[#2A7F6F] !pb-0"
+                  staggerFrom="first"
+                  staggerDuration={0.04}
+                  initial={{ opacity: 0, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeIn' }}
+                  animatePresenceInitial={true}
+                  rotationInterval={2500}
+                  splitBy="characters"
+                />
+              </h1>
+
+              {/* Parágrafo */}
+              <p style={{ fontSize: '11px', color: '#6B7280', lineHeight: 1.5, maxWidth: '92%', margin: '0 auto' }}>
+                Atendo crianças com as condições cirúrgicas mais comuns da infância: fimose, hérnias, testículo não descido e muito mais. Em cada caso, a família sai da consulta sabendo exatamente o que está acontecendo e qual é o melhor caminho.
+              </p>
+
+              {/* Botão primário */}
+              <a href="https://wa.me/5571999999999" target="_blank"
+                style={{ width: '100%', borderRadius: '999px', background: '#2A7F6F', color: 'white', fontSize: '13px', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '9px 20px', textDecoration: 'none' }}>
+                Agendar Consulta
+              </a>
+
+              {/* Botão secundário */}
+              <a href="#manifesto"
+                style={{ width: '100%', borderRadius: '999px', background: 'transparent', color: '#2A7F6F', fontSize: '13px', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '9px 20px', border: '1.5px solid #2A7F6F', textDecoration: 'none' }}>
+                Saiba mais
+              </a>
+
+              {/* Prova social */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                <div style={{ display: 'flex' }}>
+                  {[
+                    'https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                    'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                    'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                    'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                  ].map((src, i) => (
+                    <div key={i} style={{ width: '24px', height: '24px', borderRadius: '50%', border: '2px solid white', overflow: 'hidden', position: 'relative', flexShrink: 0, marginLeft: i > 0 ? '-6px' : '0' }}>
+                      <Image src={src} alt="Família paciente" width={24} height={24} className="object-cover w-full h-full" />
+                    </div>
+                  ))}
+                </div>
+                <div style={{ textAlign: 'left', lineHeight: 1.2 }}>
+                  <p style={{ fontWeight: 700, color: '#2D3436', fontSize: '11px', margin: 0 }}>+20 anos de Experiência</p>
+                  <p style={{ color: '#9CA3AF', fontSize: '9px', margin: 0 }}>Centenas de Crianças atendidas</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════════
+           LAYOUT DESKTOP  — oculto em mobile
+          ═══════════════════════════════════════════ */}
+      <div className="hidden lg:block">
+        <div className="relative bg-[#FFFFFF] text-gray-800 min-h-screen flex flex-col overflow-x-hidden">
+          <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-40" />
+          <div className="absolute inset-0 z-1 pointer-events-none" style={{
+            background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, #FFFFFF 90%), radial-gradient(ellipse at center, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 95%)'
+          }}></div>
+
+          <motion.header
             variants={headerVariants}
             initial="top"
             animate="top"
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="w-full lg:w-1/2 px-4 sm:px-6 lg:px-10 z-30 backdrop-blur-md"
-        >
+          >
             <nav className="flex justify-between items-center h-[54px] sm:h-[80px]">
-                <div className="flex items-center flex-shrink-0">
-                    <span className="text-[13px] sm:text-xl font-bold text-[#2D3436]">Dra. Rayanna<span className="text-[#2A7F6F]"> Almeida</span></span>
-                </div>
-
-                <div className="flex items-center flex-shrink-0 space-x-3 sm:space-x-4">
-                    <motion.a
-                        href="https://wa.me/5571999999999"
-                        target="_blank"
-                        className="bg-[#2A7F6F] text-white px-4 py-[6px] sm:px-6 sm:py-[10px] rounded-full text-[11px] sm:text-sm font-semibold hover:bg-[#1E5C50] transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        Agende Agora
-                    </motion.a>
-
-                    <motion.button
-                        className="text-gray-800 hover:text-[#2A7F6F] z-50"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        aria-label="Toggle menu"
-                    >
-                        {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-                    </motion.button>
-                </div>
+              <div className="flex items-center flex-shrink-0">
+                <span className="text-[13px] sm:text-xl font-bold text-[#2D3436]">Dra. Rayanna<span className="text-[#2A7F6F]"> Almeida</span></span>
+              </div>
+              <div className="flex items-center flex-shrink-0 space-x-3 sm:space-x-4">
+                <motion.a
+                  href="https://wa.me/5571999999999"
+                  target="_blank"
+                  className="bg-[#2A7F6F] text-white px-4 py-[6px] sm:px-6 sm:py-[10px] rounded-full text-[11px] sm:text-sm font-semibold hover:bg-[#1E5C50] transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Agende Agora
+                </motion.a>
+                <motion.button
+                  className="text-gray-800 hover:text-[#2A7F6F] z-50"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  aria-label="Toggle menu"
+                >
+                  {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+                </motion.button>
+              </div>
             </nav>
-
             <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        key="mobile-menu"
-                        variants={mobileMenuVariants} initial="hidden" animate="visible" exit="exit"
-                        className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg py-4 border-t border-gray-100"
-                    >
-                        <div className="flex flex-col items-center space-y-4 px-6">
-                            <NavLink href="#hero" onClick={() => setIsMobileMenuOpen(false)}>Início</NavLink>
-                            <NavLink href="#manifesto" onClick={() => setIsMobileMenuOpen(false)}>Manifesto</NavLink>
-                            <NavLink href="#metodo" onClick={() => setIsMobileMenuOpen(false)}>Método</NavLink>
-                            <NavLink href="#quem-sou" onClick={() => setIsMobileMenuOpen(false)}>Quem sou</NavLink>
-                            <NavLink href="#faq" onClick={() => setIsMobileMenuOpen(false)}>Dúvidas</NavLink>
-                        </div>
-                    </motion.div>
-                )}
+              {isMobileMenuOpen && (
+                <motion.div
+                  key="mobile-menu"
+                  variants={mobileMenuVariants} initial="hidden" animate="visible" exit="exit"
+                  className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg py-4 border-t border-gray-100"
+                >
+                  <div className="flex flex-col items-center space-y-4 px-6">
+                    <NavLink href="#hero" onClick={() => setIsMobileMenuOpen(false)}>Início</NavLink>
+                    <NavLink href="#manifesto" onClick={() => setIsMobileMenuOpen(false)}>Manifesto</NavLink>
+                    <NavLink href="#metodo" onClick={() => setIsMobileMenuOpen(false)}>Método</NavLink>
+                    <NavLink href="#quem-sou" onClick={() => setIsMobileMenuOpen(false)}>Quem sou</NavLink>
+                    <NavLink href="#faq" onClick={() => setIsMobileMenuOpen(false)}>Dúvidas</NavLink>
+                  </div>
+                </motion.div>
+              )}
             </AnimatePresence>
-        </motion.header>
+          </motion.header>
 
-        <main className="flex-grow flex flex-col lg:flex-row relative z-10">
-
-            {/* ── Coluna esquerda: conteúdo ── */}
+          <main className="flex-grow flex flex-col lg:flex-row relative z-10">
             <div className="flex flex-grow flex-col items-center justify-center text-center lg:flex-grow-0 lg:items-start lg:text-left lg:w-1/2 px-4 lg:pl-16 xl:pl-24 lg:pr-12 py-[54px] sm:py-[80px] lg:pt-[80px] lg:pb-0">
 
-                <motion.div
-                    variants={bannerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="mb-6 sm:mb-8"
-                >
-                    <ShinyText text="Salvador · Feira de Santana · 21 anos de experiência" className="bg-[#2A7F6F]/10 border border-[#2A7F6F]/20 text-[#2A7F6F] px-3 py-1 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide whitespace-nowrap" />
-                </motion.div>
+              <motion.div variants={bannerVariants} initial="hidden" animate="visible" className="mb-6 sm:mb-8">
+                <ShinyText text="Salvador · Feira de Santana · 21 anos de experiência" className="bg-[#2A7F6F]/10 border border-[#2A7F6F]/20 text-[#2A7F6F] px-3 py-1 sm:px-5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide whitespace-nowrap" />
+              </motion.div>
 
-                <motion.h1
-                    variants={headlineVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-bold text-[#2D3436] mb-6"
-                    style={{ lineHeight: 1.3 }}
-                >
-                    Ninguém quer operar o filho.<br />
-                    Mas quando é necessário,<br />
-                    <span className="inline-flex flex-wrap justify-center lg:justify-start items-baseline gap-x-2">
-                      <span>você precisa de alguém em quem</span>
-                      <span className="inline-block h-[1.1em] overflow-hidden align-bottom min-w-[6em] sm:min-w-[6em] lg:min-w-[6em]">
-                          <RotatingText
-                              texts={['CONFIAR', 'ACREDITAR', 'DEPENDER', 'CONTAR', 'CRER']}
-                              mainClassName="text-[#2A7F6F]"
-                              staggerFrom={"last"}
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              exit={{ opacity: 0 }}
-                              transition={{ duration: 0.5, ease: "easeInOut" }}
-                              rotationInterval={2500}
-                              splitBy="characters"
-                          />
-                      </span>
-                    </span>
-                </motion.h1>
-
-                <motion.p
-                    variants={subHeadlineVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="text-[11px] sm:text-base lg:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-10 leading-relaxed"
-                >
-                    Atendo crianças com as condições cirúrgicas mais comuns da infância: fimose, hérnias, testículo não descido e muito mais. Em cada caso, a família sai da consulta sabendo exatamente o que está acontecendo e qual é o melhor caminho.
-                </motion.p>
-
-                <motion.div
-                    variants={ctaVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 w-full max-w-md lg:max-w-none mx-auto lg:mx-0 mb-10 lg:mb-12"
-                >
-                    <InteractiveButton
-                        text="Agendar Consulta"
-                        href="https://wa.me/5571999999999"
-                        target="_blank"
-                        className="w-full sm:w-auto"
+              <motion.h1
+                variants={headlineVariants}
+                initial="hidden"
+                animate="visible"
+                className="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-bold text-[#2D3436] mb-6"
+                style={{ lineHeight: 1.3 }}
+              >
+                Ninguém quer operar o filho.<br />
+                Mas quando é necessário,<br />
+                <span className="inline-flex flex-wrap justify-center lg:justify-start items-baseline gap-x-2">
+                  <span>você precisa de alguém em quem</span>
+                  <span className="inline-block h-[1.1em] overflow-hidden align-bottom min-w-[6em] sm:min-w-[6em] lg:min-w-[6em]">
+                    <RotatingText
+                      texts={['CONFIAR', 'ACREDITAR', 'DEPENDER', 'CONTAR', 'CRER']}
+                      mainClassName="text-[#2A7F6F]"
+                      staggerFrom={"last"}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      rotationInterval={2500}
+                      splitBy="characters"
                     />
-                    <InteractiveButton
-                        text="Saiba mais"
-                        href="#manifesto"
-                        variant="secondary"
-                        className="w-full sm:w-auto"
-                    />
-                </motion.div>
+                  </span>
+                </span>
+              </motion.h1>
 
-                {/* Prova social */}
-                <motion.div
-                    variants={infoVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="flex items-center justify-center lg:justify-start gap-2 sm:gap-4"
-                >
-                    <div className="flex -space-x-2 sm:-space-x-3">
-                        {[
-                            'https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
-                            'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
-                            'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
-                            'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
-                        ].map((src, i) => (
-                            <div key={i} className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border-2 border-white flex-shrink-0 overflow-hidden relative">
-                                <Image src={src} alt="Família paciente" width={40} height={40} className="object-cover w-full h-full" />
-                            </div>
-                        ))}
+              <motion.p
+                variants={subHeadlineVariants}
+                initial="hidden"
+                animate="visible"
+                className="text-[11px] sm:text-base lg:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-10 leading-relaxed"
+              >
+                Atendo crianças com as condições cirúrgicas mais comuns da infância: fimose, hérnias, testículo não descido e muito mais. Em cada caso, a família sai da consulta sabendo exatamente o que está acontecendo e qual é o melhor caminho.
+              </motion.p>
+
+              <motion.div
+                variants={ctaVariants}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 w-full max-w-md lg:max-w-none mx-auto lg:mx-0 mb-10 lg:mb-12"
+              >
+                <InteractiveButton text="Agendar Consulta" href="https://wa.me/5571999999999" target="_blank" className="w-full sm:w-auto" />
+                <InteractiveButton text="Saiba mais" href="#manifesto" variant="secondary" className="w-full sm:w-auto" />
+              </motion.div>
+
+              <motion.div variants={infoVariants} initial="hidden" animate="visible" className="flex items-center justify-center lg:justify-start gap-2 sm:gap-4">
+                <div className="flex -space-x-2 sm:-space-x-3">
+                  {[
+                    'https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                    'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                    'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                    'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=80&h=80&fit=crop&crop=entropy&auto=format&q=80',
+                  ].map((src, i) => (
+                    <div key={i} className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border-2 border-white flex-shrink-0 overflow-hidden relative">
+                      <Image src={src} alt="Família paciente" width={40} height={40} className="object-cover w-full h-full" />
                     </div>
-                    <div className="text-left">
-                        <p className="font-bold text-[#2D3436] text-[11px] sm:text-sm">+20 anos de Experiência</p>
-                        <p className="text-[10px] sm:text-xs text-gray-500">Centenas de Crianças atendidas</p>
-                    </div>
-                </motion.div>
-
-            </div>
-
-            {/* ── Coluna direita: foto (apenas desktop) ── */}
-            <div className="hidden lg:block lg:w-1/2 relative">
-                {/* Foto principal contida */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <Image
-                        src="/images/dra-com-paciente.png"
-                        alt="Dra. Rayanna Almeida com paciente"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                    />
+                  ))}
                 </div>
-                {/* Card flutuante — fora do overflow-hidden, aparece completo */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30, x: 20 }}
-                    animate={{ opacity: 1, y: 0, x: 0 }}
-                    transition={{ delay: 0.9, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-                    className="absolute bottom-10 left-[-28px] w-[200px] h-[158px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-10"
-                >
-                    <Image
-                        src="/images/dra-escrevendo.png"
-                        alt="Dra. Rayanna no consultório"
-                        fill
-                        className="object-cover object-top"
-                    />
-                </motion.div>
+                <div className="text-left">
+                  <p className="font-bold text-[#2D3436] text-[11px] sm:text-sm">+20 anos de Experiência</p>
+                  <p className="text-[10px] sm:text-xs text-gray-500">Centenas de Crianças atendidas</p>
+                </div>
+              </motion.div>
+
             </div>
 
-        </main>
+            <div className="hidden lg:block lg:w-1/2 relative">
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  src="/images/dra-com-paciente.png"
+                  alt="Dra. Rayanna Almeida com paciente"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 30, x: 20 }}
+                animate={{ opacity: 1, y: 0, x: 0 }}
+                transition={{ delay: 0.9, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+                className="absolute bottom-10 left-[-28px] w-[200px] h-[158px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-10"
+              >
+                <Image src="/images/dra-escrevendo.png" alt="Dra. Rayanna no consultório" fill className="object-cover object-top" />
+              </motion.div>
+            </div>
+          </main>
+        </div>
+      </div>
+
     </div>
   );
 };
