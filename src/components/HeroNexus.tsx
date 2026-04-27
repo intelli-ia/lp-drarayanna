@@ -614,10 +614,7 @@ const HeroNexus: React.FC = () => {
 
               {/* Headline */}
               <h1 style={{ fontSize: '17px', fontWeight: 700, color: '#2D3436', lineHeight: 1.3, width: '100%', margin: 0 }}>
-                Ninguém quer operar o filho.<br />
-                Mas quando é necessário,<br />
-                você precisa de alguém em quem<br />
-                <span style={{ color: '#2A7F6F' }}>CONFIAR</span>
+                Cirurgia com cuidado<br /> e segurança para o seu <span style={{ color: '#2A7F6F' }}>filho.</span>
               </h1>
 
               {/* Parágrafo */}
@@ -701,22 +698,7 @@ const HeroNexus: React.FC = () => {
                 className="font-bold text-[#2D3436] mb-6"
                 style={{ fontSize: 'clamp(22px, 2.4vw, 44px)', lineHeight: 1.3 }}
               >
-                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>Ninguém quer operar o filho.</span>
-                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>Mas quando é necessário,</span>
-                <span style={{ display: 'block', whiteSpace: 'nowrap' }}>você precisa de alguém em quem</span>
-                <span style={{ display: 'block' }}>
-                  <RotatingText
-                    texts={['CONFIAR', 'ACREDITAR', 'DEPENDER', 'CONTAR', 'CRER']}
-                    mainClassName="text-[#2A7F6F]"
-                    staggerFrom="last"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    rotationInterval={2500}
-                    splitBy="characters"
-                  />
-                </span>
+                Cirurgia com cuidado<br /> e segurança para o seu <span className="text-[#2A7F6F]">filho.</span>
               </motion.h1>
 
               <motion.p
