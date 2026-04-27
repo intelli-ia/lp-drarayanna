@@ -77,7 +77,7 @@ export function ManifestoZoom({ images }: ManifestoZoomProps) {
                         <div className="heroButtons flex justify-center mt-10">
                             <InteractiveButton 
                                 text="Agende uma consulta" 
-                                href="https://wa.me/5571999999999" 
+                                href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais" 
                                 target="_blank"
                             />
                         </div>
