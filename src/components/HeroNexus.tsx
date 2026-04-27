@@ -626,7 +626,7 @@ const HeroNexus: React.FC = () => {
               </p>
 
               {/* Botão primário */}
-              <a href="https://wa.me/5571999999999" target="_blank"
+              <a href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais" target="_blank"
                 style={{ width: '100%', borderRadius: '999px', background: '#2A7F6F', color: 'white', fontSize: '13px', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '9px 20px', textDecoration: 'none' }}>
                 Agendar Consulta
               </a>
@@ -734,7 +734,7 @@ const HeroNexus: React.FC = () => {
                 animate="visible"
                 className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 w-full max-w-md lg:max-w-none mx-auto lg:mx-0 mb-10 lg:mb-12"
               >
-                <InteractiveButton text="Agendar Consulta" href="https://wa.me/5571999999999" target="_blank" className="w-full sm:w-auto" />
+                <InteractiveButton text="Agendar Consulta" href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais" target="_blank" className="w-full sm:w-auto" />
                 <InteractiveButton text="Saiba mais" href="#manifesto" variant="secondary" className="w-full sm:w-auto" />
               </motion.div>
 

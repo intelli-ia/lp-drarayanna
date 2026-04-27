@@ -17,7 +17,7 @@ const Navbar = () => {
           <a href="#metodo">Método</a>
           <a href="#quem-sou">Quem sou</a>
           <a href="#faq">Dúvidas</a>
-          <a href="https://wa.me/5571999999999" target="_blank" className="cta">Agende Agora</a>
+          <a href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais" target="_blank" className="cta">Agende Agora</a>
         </div>
         
         {/* Simple mobile indicator for now */}

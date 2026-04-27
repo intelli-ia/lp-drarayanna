@@ -130,7 +130,7 @@ export default function Home() {
               <div className="mt-10">
                 <InteractiveButton
                   text="Agende uma consulta"
-                  href="https://wa.me/5571999999999"
+                  href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais"
                   target="_blank"
                 />
               </div>
@@ -175,7 +175,7 @@ export default function Home() {
                     >
                       <InteractiveButton 
                         text="Agende uma consulta" 
-                        href="https://wa.me/5571999999999" 
+                        href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais" 
                         target="_blank"
                       />
                       <InteractiveButton 
@@ -334,7 +334,7 @@ export default function Home() {
 
               <InteractiveButton
                 text="Conhecer Clínica"
-                href="https://wa.me/5571999999999"
+                href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais"
                 target="_blank"
               />
             </motion.div>
@@ -350,7 +350,7 @@ export default function Home() {
             <span className="badge">FAQ</span>
             <h2>Perguntas Frequentes</h2>
             <p className="max-w-2xl mx-auto opacity-70">
-              Caso ainda tenha dúvidas sobre o atendimento ou procedimentos, <a href="https://wa.me/5571999999999" style={{ color: 'var(--color-forest-teal)', fontWeight: '600', textDecoration: 'underline' }}>entre em contato</a>.
+              Caso ainda tenha dúvidas sobre o atendimento ou procedimentos, <a href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais" style={{ color: 'var(--color-forest-teal)', fontWeight: '600', textDecoration: 'underline' }}>entre em contato</a>.
             </p>
           </div>
           
@@ -410,7 +410,7 @@ export default function Home() {
           <div style={{ textAlign: 'center', marginTop: '80px' }}>
              <InteractiveButton
                text="Agendar meu horário"
-               href="https://wa.me/5571999999999"
+               href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais"
                target="_blank"
              />
           </div>
