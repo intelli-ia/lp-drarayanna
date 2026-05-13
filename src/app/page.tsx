@@ -285,10 +285,10 @@ export default function Home() {
               {/* Texto */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '48px' }}>
                 <p style={{ color: 'var(--color-text-main)', opacity: 0.72, lineHeight: 1.85, fontSize: '1rem' }}>
-                  Sou médica há 27 anos e cirurgiã pediátrica há quase 21. Nesse tempo, operei, acompanhei e orientei centenas de famílias em Salvador no Hospital da Irmã Dulce e na Maternidade de Referência.
+                  Sou médica há 28 anos e cirurgiã pediátrica há quase 21. Nesse tempo, operei, acompanhei e orientei centenas de famílias em Salvador no Hospital da Irmã Dulce e na Maternidade de Referência.
                 </p>
                 <p style={{ color: 'var(--color-text-main)', opacity: 0.72, lineHeight: 1.85, fontSize: '1rem' }}>
-                  Hoje atendo em Salvador, nas clínicas Geort e Vita Salute, levando para o consultório particular a mesma seriedade e cuidado que aprendi nos anos de hospital.
+                  Hoje atendo em Salvador na Clínica Vita Salute, Hospital Irmã Dulce, CSI Clínica, Vita Salute e DN Master, levando para o consultório particular a mesma seriedade e cuidado que aprendi nos anos de hospital.
                 </p>
               </div>
 
@@ -308,7 +308,7 @@ export default function Home() {
                 }}
               >
                 {[
-                  { to: 27, prefix: '',  label: 'anos de medicina' },
+                  { to: 28, prefix: '',  label: 'anos de medicina' },
                   { to: 21, prefix: '+', label: 'anos em cirurgia pediátrica' },
                   { to: 100, prefix: '', label: 'famílias atendidas' },
                 ].map((stat, i) => (
@@ -333,7 +333,7 @@ export default function Home() {
               </motion.div>
 
               <InteractiveButton
-                text="Conhecer Clínica"
+                text="Clique para agendar"
                 href="https://wa.me/557181551023?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais"
                 target="_blank"
               />
@@ -382,7 +382,7 @@ export default function Home() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <span className="badge">Unidades</span>
-            <h2>Onde encontrar a Dra. Rayanna</h2>
+            <h2>Onde encontrar a<br className="sm:hidden" /> Dra. Rayanna</h2>
             <p className="max-w-2xl mx-auto opacity-70">Consultórios preparados para receber sua família com conforto e segurança.</p>
           </div>
           
@@ -390,17 +390,25 @@ export default function Home() {
             <div className="locationCard">
               <div className="locationHeader">
                 <span className="cityBadge">Salvador</span>
-                <h3>Clínica Geort / Vita Salute</h3>
+                <h3>Clínicas em Salvador</h3>
               </div>
-              <p>Atendimento especializado no Memorial e na Clínica Vita Salute, com foco em acolhimento e diagnóstico preciso.</p>
-              <div className="locationActions" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <p>Atendimento especializado na Clínica Vita Salute, Hospital Irmã Dulce, CSI Clínica, Vita Salute e DN Master, com foco em acolhimento e diagnóstico preciso.</p>
+              <div className="locationActions" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
-                  <a href="https://maps.app.goo.gl/iPaU3YSQBfE3cdSY6" target="_blank" rel="noopener noreferrer" className="locationLink">Ver no Mapa →</a>
-                  <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', opacity: 0.55, marginTop: '4px', marginBottom: 0 }}>Clínica Vita - Medicina Inteligente</p>
+                  <a href="https://share.google/SwKj7TAur3zqu4aYy" target="_blank" rel="noopener noreferrer" className="locationLink">Ver no Mapa →</a>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', opacity: 0.55, marginTop: '4px', marginBottom: 0 }}>Vita Salute</p>
                 </div>
                 <div>
                   <a href="https://share.google/W14ZMfUM9K8zzfw0v" target="_blank" rel="noopener noreferrer" className="locationLink">Ver no Mapa →</a>
-                  <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', opacity: 0.55, marginTop: '4px', marginBottom: 0 }}>Geort Clínica Especialidades Médicas</p>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', opacity: 0.55, marginTop: '4px', marginBottom: 0 }}>Hospital Irmã Dulce</p>
+                </div>
+                <div>
+                  <a href="https://share.google/8IH5TU0ZGZxzLHPMF" target="_blank" rel="noopener noreferrer" className="locationLink">Ver no Mapa →</a>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', opacity: 0.55, marginTop: '4px', marginBottom: 0 }}>Clínica de Saúde e Imagem - CSI</p>
+                </div>
+                <div>
+                  <a href="https://share.google/iQtB1pMTPVQPbGV7f" target="_blank" rel="noopener noreferrer" className="locationLink">Ver no Mapa →</a>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--color-text-main)', opacity: 0.55, marginTop: '4px', marginBottom: 0 }}>DN Master Clínica</p>
                 </div>
               </div>
             </div>
